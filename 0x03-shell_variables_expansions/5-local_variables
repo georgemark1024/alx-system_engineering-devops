@@ -1,0 +1,5 @@
+#!/bin/bash
+local_variables=$(set | grep -E '^[a-zA-Z_][a-zA-Z_0-9]*=' | cut -d= -f1)
+environment_variables=$(env | cut -d= -f1)
+functions=$(compgen -A function | comm -23 - <(set | awk -F'[() ]' '/[ \t]*\(\)/{print $2}'))
+echo "$local_variables $environment_variables $functions"
