@@ -1,2 +1,2 @@
 #!/bin/bash
-awk -F ':' '{sum+=NF} END {print sum}' $(echo $PATH)
+IFS=: read -ra p <<< "$PATH" && echo "Number of directories in PATH: ${#p[@]}"
