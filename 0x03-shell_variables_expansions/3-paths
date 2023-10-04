@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $PATH > awk -F ':' '{sum+=NF} END {print sum}'
+awk -F ':' '{sum+=NF} END {print sum}' $(echo $PATH)
